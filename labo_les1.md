@@ -20,7 +20,7 @@ toetsencombinatie kan je dan aangeven dat de invoer stopt?
 **1. ... Hoe kan je voorwaarts zoeken in een manpagina?**
 `/<zoekterm>`
 vervolgens `n` drukken op volgende match te vinden of `N` voor de vorige
-**2. Hoe kan je zorgen dat er bij het zoeken in een manpagina geen rekening wordt gehouden met het verschil tussen hoofd- en kleine letters?** 
+**2. Hoe kan je zorgen dat er bij het zoeken in een manpagina geen rekening wordt gehouden met het verschil tussen hoofd- en kleine letters?**  
 via de `-i` / `--ignore-case` optie NA het ENTER drukken bij zoeken zoekterm
 **3. Bekijk de manpagina van het commando man en ga na hoeveel secties er gekend zijn.**
 kan men zien via
@@ -30,12 +30,12 @@ Note: bij formatteren van output, best gebruik maken van `printf`, indien niet p
 
 **4. ...**
 
-**5. Met de opdracht “ls” krijg je van een directory een overzicht van alle bestanden en subdirectories te zien. Wanneer je geen directory opgeeft, wordt de huidige werkdirectory genomen. Wat doen de opties -l en -h?**
+**5. Met de opdracht “ls” krijg je van een directory een overzicht van alle bestanden en subdirectories te zien. Wanneer je geen directory opgeeft, wordt de huidige werkdirectory genomen. Wat doen de opties -l en -h?**  
 `ll` is een alias voor `ls -l`
 
 Note: voor ingebouwde commando's is het interessanter gebruik te maken van `help <zoekterm> less` in tegenstelling tot "the usual" `man`
 
-**6. Bekijk met “ls /” de inhoud van de hoofddirectory.   Is bij iedere hoofdirectory in een Unix systeem dezelfde structuur**
+**6. Bekijk met “ls /” de inhoud van de hoofddirectory.   Is bij iedere hoofdirectory in een Unix systeem dezelfde structuur**  
 uitleg mappen:  
 bin: bevat uitvoerbare bestanden
 dev: interfaces voor de hardwarde
@@ -53,7 +53,7 @@ mnt: mount punt voor bv usb
 # Deel II: Compileren in de Shell
 
 
-UItleg over het compileren van een bestand:
+Uitleg over het compileren van een bestand:
 ![file_compiler](./afbeeldingen/compileer_flow.png)
 Begin bij een bestand met extensie .c
 en enkele extra bestanden erbij met extensie .h (header files)
@@ -71,7 +71,7 @@ NOTE: dit .o bestand is nog altijd niet uitvoerbaar
 nu heeft men 2 verdere opties
 dynamisch of statisch verdergaan
 
-- stel dat men statisch verdergaat:
+- stel dat men **statisch** verdergaat:
 (handig wnr men het geeft aan iemand waarvan men niet zeker is als men de externe bilbiotheken heeft => geen externe bibliotheken nodig, in tegenstelling tot dynamisch)
 (`dnf install glibc-static` installeren om gebruik te kunnen maken van static)
 hierbij maakt men gebruik van een "linker"(=linkeditor) die de ontbrekende bestanden (die extensie .a hebben) zal toevoegen, deze worden dan gekoppeld aan de vorige .o file & zo eindigt men met een a.out bestand
@@ -81,7 +81,7 @@ nadeel: bij updates van de bibliotheken (als printf) zou men dit moeten hercompi
 
 TL;DR: maken gebruik van compiler => assembler => linker
 
-- stel dat men dynamisch verdergaat:
+- stel dat men **dynamisch** verdergaat:
 voordeel: bestandsgrootte is beperkter (bv de printf functie hoeft maar eenmalig ingeladen te worden)
 nadeel: system calls doen het wat trager
 
