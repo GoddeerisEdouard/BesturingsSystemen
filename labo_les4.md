@@ -99,7 +99,7 @@ werden overgeslagen in de les maar mogen zeker gemaakt worden als oefening
 
 **44. Gebruik het commando join met aangepaste opties om op basis van de daarnet gecreëerde bestanden ~/passwd en ~/group een lijst af te drukken met op elke lijn enkel drie velden: de gebruikers-ID, de volledige gebruikersnaam en de naam van de primaire groep waartoe de gebruiker behoort. Geef de volledige commandolijn waarmee je deze opdracht hebt uitgevoerd. Hoeveel uitvoerregels zijn er? Hoe heb je dit aantal geteld?**
 **Vergelijk met het aantal regels in het passwd bestand. Indien deze aantallen niet overeenkomen heb je ofwel bij deze vraag, ofwel bij de vorige een fout gemaakt.**  
-![sort group en passwd](./afbeeldingen/sort_in_etc_group_en_passwd.png)
+![sort group en passwd](./afbeeldingen/sort_in_etc_group_en_passwd.png)  
 Hieruit moet men voornamelijk zien dat zowel passwd en group eenzelfde veld hebben, namelijk `gid` die gebruikt kan worden om beide bestanden te gaan joinen.  
 
 Om deze te gaan joinen moet men deze eerst sorteren.  
@@ -182,12 +182,14 @@ duurt even, dus we kunnen pipen
 `find / -type d | grep -E "/sh.*$"`  
 kortste methode:  
 `find / -type d -name "sh*"`  
+
 **50. Gebruik het find-commando om een lijst te bekomen van alle bestanden in de /usr directory tree met een bestandsgrootte van minstens 1 megabyte. Bij het uitprinten (één lijn per bestand) moet je het volledig pad van de gevonden bestanden laten voorafgaan door de grootte van het bestand. Geef de volledige commandolijn waarmee je deze opdracht hebt uitgevoerd. Let er ook op dat je enkel bestanden in de lijst opneemt en geen directory's.**  
 overgeslagen
 
 **51. Gebruik het find-commando om een lijst te bekomen van alle bestanden in je persoonlijke map, die gedurende de laatste twee weken gewijzigd werden. Bij het uitprinten (één lijn per bestand) moet je het volledig pad van de gevonden bestanden laten voorafgaan door het tijdstip van de laatste wijziging. Geef de volledige commandolijn waarmee je deze opdracht hebt uitgevoerd. Let er ook op dat je enkel bestanden in de lijst opneemt en geen directory's.**
 overgeslagen
-**52. Gebruik het find-commando om een lijst te bekomen van alle subdirectory's van /usr waarin zich C- of C++-headerbestanden (bestanden met suffix .h) bevinden. Gebruik een commandolijn van de gedaante find ... | sort | uniq. Let erop dat enkel de namen van de directory's weergegeven worden.**
-overgeslagen in deze les, wordt opgelost in de volgende les
-**53. 54.**
+**52. Gebruik het find-commando om een lijst te bekomen van alle subdirectory's van /usr waarin zich C- of C++-headerbestanden (bestanden met suffix .h) bevinden. Gebruik een commandolijn van de gedaante find ... | sort | uniq. Let erop dat enkel de namen van de directory's weergegeven worden.**  
+overgeslagen in deze les, wordt opgelost in de volgende les  
+
+**53. 54.**  
 hoeft niet gedaan te worden
