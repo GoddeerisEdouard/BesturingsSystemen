@@ -2,14 +2,14 @@
 
 ## opdrachten (p.28/51)
 
-**85. 86. 87. 88.**
-overgeslagen
+**85. 86. 87. 88.**  
+overgeslagen  
 
 ---
-**Herhalingsinstructies**
-**Output van een commando verwerken in een script**
-intro tekst samengevat
-uitvoer van commando opslaan in een variabele in een script kan op verschillende manieren:
+**Herhalingsinstructies**  
+**Output van een commando verwerken in een script**  
+intro tekst samengevat  
+uitvoer van commando opslaan in een variabele in een script kan op verschillende manieren:  
 - `cut` met een delimiter
 - volledige regel opslaan & stringoperatoren gebruiken
 - `read` in combinatie met `IFS` om argumenten op te splitsen
@@ -108,7 +108,7 @@ exit 0
 ---
 **Lussen: while en until**
 
-**Met een lus kan je een bepaald deel van het script herhalen zolang de exit status van een commando waar is. Je kunt hierbij het test-commando gebruiken, maar ook een read-commando, of om het even welk ander commando, of zelfs gegroepeerde commando's (tussen ronde haakjes of accolades, of een pipe).**
+**Met een lus kan je een bepaald deel van het script herhalen zolang de exit status van een commando waar is. Je kunt hierbij het test-commando gebruiken, maar ook een read-commando, of om het even welk ander commando, of zelfs gegroepeerde commando's (tussen ronde haakjes of accolades, of een pipe).**  
 vb
 ```sh
 while commando
@@ -145,8 +145,8 @@ while :;do
 done
 ```
 
-**Als de exit status gelijk is aan 0 (waar), worden de opdrachten tot de afsluitende done uitgevoerd, waarna de voorwaarde-opdracht weer aan de beurt is. Wanneer de lus niet doorlopen wordt, is de exit status van de lus 0. Wanneer de lus wel doorlopen wordt, is de exit-status van de lus gelijk aan de exit status van de laatste opdracht die binnen de while-lus uitgevoerd werd. De until-lus is functioneel gelijk aan de while-lus, maar de exit status van de voorwaarde wordt geïnverteerd**
-TL;DR: bij while loop wanneer deze wordt overgeslagen is exit status 0, indien deze doorlopen wordt is exit status = exit status laatste opdracht
+**Als de exit status gelijk is aan 0 (waar), worden de opdrachten tot de afsluitende done uitgevoerd, waarna de voorwaarde-opdracht weer aan de beurt is. Wanneer de lus niet doorlopen wordt, is de exit status van de lus 0. Wanneer de lus wel doorlopen wordt, is de exit-status van de lus gelijk aan de exit status van de laatste opdracht die binnen de while-lus uitgevoerd werd. De until-lus is functioneel gelijk aan de while-lus, maar de exit status van de voorwaarde wordt geïnverteerd**  
+TL;DR: bij while loop wanneer deze wordt overgeslagen is exit status 0, indien deze doorlopen wordt is exit status = exit status laatste opdracht  
 
 **92. Ontwikkel een script dat het commando tail n simuleert. Als eerste argument moet een bestandsnaam opgegeven worden en als tweede argument mag het aantal regels opgegeven worden. Ontbreekt het tweede argument, dan worden de 10 laatste regels weergegeven. Realiseer dit op twee manieren:**
 
@@ -219,14 +219,14 @@ while :;do
 done
 ```
 
-**94. Het bestand ping.out (http://amerigo.ugent.be/besturingssystemen/2022-2023/ping.out) bevat de output van een Windows batch file:...**
-kan via wget gedownload worden
+**94. Het bestand ping.out (http://amerigo.ugent.be/besturingssystemen/2022-2023/ping.out) bevat de output van een Windows batch file:...**  
+kan via wget gedownload worden  
 
-eerst zoeken nr lijnen die beginnen met "Pinging"
-& lijnen die beginnen met "Reply"
-dmv de vlag zoeken we eerst nr pinging en dan nr Reply & opnieuw & opnieuw, ...
+eerst zoeken nr lijnen die beginnen met "Pinging"  
+& lijnen die beginnen met "Reply"  
+dmv de vlag zoeken we eerst nr pinging en dan nr Reply & opnieuw & opnieuw, ...  
 
-! dit is nog niet volledig correct door "Unkown host" ipv Reply output soms
+! dit is nog niet volledig correct door "Unkown host" ipv Reply output soms  
 ```sh
 #!/bin/bash
 
@@ -244,6 +244,6 @@ while read lijn;do
     fi
 done < ping.out
 ```
-Men kan dit dan bv met grep -A4 \<een hostname> ping.out
-nagaan als de output wel degelijk klopt
-`-A4` is een optie die ook de 4 lijnen na de gevonden grep zal tonen, `-B4` zou dan de 4 vorige ook geven
+Men kan dit dan bv met grep -A4 \<een hostname> ping.out  
+nagaan als de output wel degelijk klopt  
+`-A4` is een optie die ook de 4 lijnen na de gevonden grep zal tonen, `-B4` zou dan de 4 vorige ook geven  

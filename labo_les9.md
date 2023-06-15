@@ -2,23 +2,23 @@
 
 ## opdrachten (p.34/51)
 
-**102. ...**
-overgeslagen
+**102. ...**  
+overgeslagen  
 
-**103. Enerzijds kun je met behulp van het commando ps -e informatie opvragen over alle processen die actief zijn. De vier kolommen in de output tonen respectievelijk het proces-ID (PID), de TTY device file van de (pseudo-)terminal, de CPU time, en het commando dat het proces opgestart heeft. Anderzijds kun je met behulp van het commando kill -KILL pid een proces met willekeurig proces-ID afbreken. Ontwikkel een script dat alle processen afbreekt waarvan het commando één van de strings bevat die als parameters bij het oproepen van het script meegegeven wordt. Indien geen enkele parameter meegegeven wordt, moet het script een gesorteerde lijst weergeven van alle unieke commandonamen van actieve processen. Behalve de interne instructies (if, for, case, let, while, read enz.) mag je ook het externe commando sort gebruiken. Om problemen te vermijden, schrijf je bij het testen de kill-opdracht uit naar standaarduitvoer i.p.v. deze daadwerkelijk uit te voeren.**
-Deze vraag^ is ooit eens gesteld geweest op een examen
+**103. Enerzijds kun je met behulp van het commando ps -e informatie opvragen over alle processen die actief zijn. De vier kolommen in de output tonen respectievelijk het proces-ID (PID), de TTY device file van de (pseudo-)terminal, de CPU time, en het commando dat het proces opgestart heeft. Anderzijds kun je met behulp van het commando kill -KILL pid een proces met willekeurig proces-ID afbreken. Ontwikkel een script dat alle processen afbreekt waarvan het commando één van de strings bevat die als parameters bij het oproepen van het script meegegeven wordt. Indien geen enkele parameter meegegeven wordt, moet het script een gesorteerde lijst weergeven van alle unieke commandonamen van actieve processen. Behalve de interne instructies (if, for, case, let, while, read enz.) mag je ook het externe commando sort gebruiken. Om problemen te vermijden, schrijf je bij het testen de kill-opdracht uit naar standaarduitvoer i.p.v. deze daadwerkelijk uit te voeren.**  
+Deze vraag^ is ooit eens gesteld geweest op een examen  
 
-ter info
+ter info  
 zo zou men alle processen opgelijst krijgen
 ```sh
 # de -s (squeeze) optie bij tr vervangt meerdere opeenvolgende spaties door 1 spatie
 `ps -e | tr -s " " | cut -d " " -f 5 | sort`
 ```
-dan kan men nog `uniq -u` of `-d` toevoegen voor de unieke of duplicate processen
-PS we wisten dat er meerdere spaties op elkaar volgden door eens de spaties te vervangen door . en dan de output te bekijken `ps -e | tr " " "."`
+dan kan men nog `uniq -u` of `-d` toevoegen voor de unieke of duplicate processen  
+PS we wisten dat er meerdere spaties op elkaar volgden door eens de spaties te vervangen door . en dan de output te bekijken `ps -e | tr " " "."`  
 
 
-ps -e heeft als output (met wat spaties tss iedere kolom)
+ps -e heeft als output (met wat spaties tss iedere kolom)  
 `PID TTY TIME CMD`
 
 ```sh
@@ -53,9 +53,9 @@ else
 fi
 ```
 
-**104. Ontwikkel een script dat (zonder getopt te gebruiken) alle opties die aan het script worden meegegeven naar standaarduitvoer wegschrijft, één per regel. Je moet dus alle karakters die voorkomen in parameters die beginnen met een minteken verzamelen, en deze één voor één verwerken. Bekommer je niet om opties die meerdere keren zouden voorkomen. Voor de argumentenlijst -Ec -rq /etc/passwd -a moet het script dus als uitvoer E, c, r, q en a produceren.**
-durft hij regelmatig te vragen op examen (is in verleden al gebeurd)
-voorbeeld output bij
+**104. Ontwikkel een script dat (zonder getopt te gebruiken) alle opties die aan het script worden meegegeven naar standaarduitvoer wegschrijft, één per regel. Je moet dus alle karakters die voorkomen in parameters die beginnen met een minteken verzamelen, en deze één voor één verwerken. Bekommer je niet om opties die meerdere keren zouden voorkomen. Voor de argumentenlijst -Ec -rq /etc/passwd -a moet het script dus als uitvoer E, c, r, q en a produceren.**  
+durft hij regelmatig te vragen op examen (is in verleden al gebeurd)  
+voorbeeld output bij  
 `./104.sh -f file -Enq -Ep`
 ```sh
 f
@@ -104,16 +104,16 @@ done
 ```
 
 **105. 106.**  
-overgeslagen
+overgeslagen  
 
-**107.**
-"eens interessant om te maken"
+**107.**  
+"eens interessant om te maken"  
 
-**108. 109. 110.**
-overgeslagen
+**108. 109. 110.**  
+overgeslagen  
 
-**111.**
-te ingewikkeld, zal niet meer gevraagd worden
+**111.**  
+te ingewikkeld, zal niet meer gevraagd worden  
 
 **112. Het bestand pagefile.out bevat de uitvoer van een Windows batch file: (te downloaden op amerigo)**
 ```sh
@@ -132,16 +132,16 @@ Directory of \\AL005951\c$ # in deze lijn zijn we geïnteresseerd
 577.850.880 bytes free # in deze lijn zijn we geïnteresseerd
 ```
 **De regel met de woorden bytes free vermeldt de beschikbare ruimte op het volume C:.**
-**Maak een script dat een tekstbestand genereert met de namen van alle toestellen die minder dan 80 MB vrij hebben op de C: schijf, één per regel.**
+**Maak een script dat een tekstbestand genereert met de namen van alle toestellen die minder dan 80 MB vrij hebben op de C: schijf, één per regel.**  
 
-lijnen waarin we geïnteresseerd zijn:
+lijnen waarin we geïnteresseerd zijn:  
 - beginnend met "Directory of"
 (in ons geval weten we gwn dat v1 het woord Directory zal meoten bevatten...)
 
-- eindigend met free
-hier kunnnen we de . vervangen door een lege string om 1 getal uit te komen (kunnen we doen dmv substrings, waarvan de pdf wordt gegeven op het examen)
-`${variabele//pattern/string}` -> vervangt ALLE occurrences
-dus
+- eindigend met free  
+hier kunnnen we de . vervangen door een lege string om 1 getal uit te komen (kunnen we doen dmv substrings, waarvan de pdf wordt gegeven op het examen)  
+`${variabele//pattern/string}` -> vervangt ALLE occurrences  
+dus  
 `${variabele//./}`
 
 ```sh

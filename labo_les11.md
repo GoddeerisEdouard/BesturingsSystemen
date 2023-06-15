@@ -1,7 +1,7 @@
 # Deel VII: Processen en POSIX-threads
-(p40/51)
+(p40/51)  
 
-intro tekst eens lezen
+intro tekst eens lezen  
 
 **1. Gegeven onderstaande code:**
 ```c
@@ -13,10 +13,10 @@ fork();
 ...
 }
 ```
-**Voorspel hoeveel kindprocessen er zullen worden aangemaakt zonder de code uit te voeren.**
-2^3 = 8 kindprocessen
+**Voorspel hoeveel kindprocessen er zullen worden aangemaakt zonder de code uit te voeren.**  
+2^3 = 8 kindprocessen  
 
-"bij `fork()` keren na einde proces parent & child terug naar waar cursor staat te pinken (na de fork dus)"
+"bij `fork()` keren na einde proces parent & child terug naar waar cursor staat te pinken (na de fork dus)"  
 
 **2. Schrijf een programma dat drie kindprocessen aanmaakt en zorg ervoor dat ieder kindproces zijn proces-ID naar het scherm schrijft en daarna stopt. Het proces-ID kan je m.b.v. de systeemaanroep getpid() opvragen en een proces kan je beëindigen met de functie `exit(int exitstatus)`. De exitstatus van een correct beëindigd proces is steeds 0 terwijl een waarde verschillend van 0 duidt op een fout.**
 ```c
@@ -86,8 +86,8 @@ gcc writestring.c -o writestring
 ./writestring
 ```
 
-**1. Herschrijf nu opdracht 2 waarbij het kindproces de systeemaanroep execv gebruikt om “writestring hello” uit te voeren. Opgelet: In het ouderproces moet je wachten tot wanneer het kindproces klaar is, waarna je nog een boodschap naar het scherm schrijft. Dit doe je door gebruik te maken van de systeemaanroep waitid of waitpid.**
-eerst kleine twist
+**1. Herschrijf nu opdracht 2 waarbij het kindproces de systeemaanroep execv gebruikt om “writestring hello” uit te voeren. Opgelet: In het ouderproces moet je wachten tot wanneer het kindproces klaar is, waarna je nog een boodschap naar het scherm schrijft. Dit doe je door gebruik te maken van de systeemaanroep waitid of waitpid.**  
+eerst kleine twist  
 een oude examenvraag was om het commando `xxd -g1` na te bootsen, met meerdere argumenten
 ```c
 #include <stio.h>
@@ -124,7 +124,7 @@ gcc xxd_oef.c
 /a.out /etc/passwd /etc/group
 ```
 
-
+oplossing
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -160,13 +160,13 @@ gcc 3.c
 ./a.out
 ```
 
-**2. Idem als deel 1 maar maak nu gebruik van de systeemaanroep execl. De laatste C-string-parameter moet (char \*)0 zijn om het einde van de opsomming aan te geven. Bemerk dat gewoon 0 schrijven niet voldoende is en zelfs fout is. Wanneer de grootte van een int verschillend is van de grootte van een char \*, zal het aantal argumenten dat doorgegeven wordt aan execl verkeerd zijn.**
-overgeslagen
+**2. Idem als deel 1 maar maak nu gebruik van de systeemaanroep execl. De laatste C-string-parameter moet (char \*)0 zijn om het einde van de opsomming aan te geven. Bemerk dat gewoon 0 schrijven niet voldoende is en zelfs fout is. Wanneer de grootte van een int verschillend is van de grootte van een char \*, zal het aantal argumenten dat doorgegeven wordt aan execl verkeerd zijn.**  
+overgeslagen  
 
 
 
-**4. 5.**
-overgeslagen "gaan we niet doen"
+**4. 5.**  
+overgeslagen "gaan we niet doen"  
 
 **6. Schrijf een programma dat een getal neemt op de commandolijn en evenveel processen genereert als dat getal aangeeft. Binnen ieder kindproces wordt een willekeurig getal genereert en opgestuurd naar de het ouderproces. Het ouderproces bepaalt het grootste van de gegeneerde getallen bepaalt en vervolgens brengt het ieder kindproces op de hoogte van wie de winnaar is, ttz. welk proces het grootste getal heeft gegenereerd. De uitvoer voor zes kindprocessen ziet er als volgt uit:**
 ```
@@ -178,8 +178,8 @@ Process 1819 is the winner
 Process 1819 is the winner
 ```
 
-korte note hierover die pas volgende les wordt besproken:
-met `read` opdrachten blokkeren we deze processen & met `write` opdrachten deblokkeren we ze
+korte note hierover die pas volgende les wordt besproken:  
+met `read` opdrachten blokkeren we deze processen & met `write` opdrachten deblokkeren we ze  
 
 oplossing zonder winnaar uit te schrijven:
 ```c
@@ -248,7 +248,8 @@ gcc 6.c -o 6
 ./6 <een getal>
 ```
 
-nu, ipv constant dat n argument herhaaldelijk te gaan gebruiken en al die aparte variabelen aan te maken, kunnen we ook een struct maken die alles samenvoegt (niet noodzakelijk, gwn wat georganiseerder):
+nu, ipv constant dat n argument herhaaldelijk te gaan gebruiken en al die aparte variabelen aan te maken,  
+kunnen we ook een struct maken die alles samenvoegt (niet noodzakelijk, gwn wat georganiseerder):  
 hier wordt ook de winnaar uitgeschreven
 ```c
 #include <stdio.h>

@@ -1,12 +1,12 @@
 # Deel V: Programmeren in Bash - vervolg
 
 ## opdrachten (p.31/51)
-**94**
-hernemen maar dan met array
-én bepaalde uitzonderingen zoals unknown host
-(wat ook bij de "foute hostnamen" lijst zou terecht moeten gekomen zijn)
-bv
-`grep -B2 host ping.out`
+**94**  
+hernemen maar dan met array  
+én bepaalde uitzonderingen zoals unknown host  
+(wat ook bij de "foute hostnamen" lijst zou terecht moeten gekomen zijn)  
+bv  
+`grep -B2 host ping.out`  
 geeft als output
 ```sh
 C:\WINDOWS\system32>ping -n 1 AL1103
@@ -37,10 +37,10 @@ done < ping.out
 ```
 
 **95. Gebruik (enkel) het bestand /etc/passwd om voor alle groepsnummers het aantal gebruikers met hetzelfde primaire groepsnummer te tellen. Realiseer dit op twee manieren:**
-**• Gebruik een while-lus met een read-commando om het bestand te overlopen en arrays om de gegevens op te slaan.**
-output formaat van /etc/passwd:
-`user:x:uid:gid:...`
-we hebben dus het gid nodig
+**• Gebruik een while-lus met een read-commando om het bestand te overlopen en arrays om de gegevens op te slaan.**  
+output formaat van /etc/passwd:  
+`user:x:uid:gid:...`  
+we hebben dus het gid nodig  
 voorbeeld output van script:
 ```sh
 0:5
@@ -73,11 +73,11 @@ for i in ${!array[@]};do
 done
 ```
 
-**• Sla eerst de gegevens geordend op in een tijdelijk bestand, en verwerk vervolgens dit bestand.**
-overgeslagen
+**• Sla eerst de gegevens geordend op in een tijdelijk bestand, en verwerk vervolgens dit bestand.**  
+overgeslagen  
 
-**96. Gebruik de bestanden /etc/group en /etc/passwd om een overzicht te maken van alle groepen, gevolgd door de volledige lijst van gebruikers die deze groep als primaire groep hebben. Gebruik een while-lus met een read-commando om het bestand /etc/group te overlopen en grep om de gebruikers op te sporen.**
-overgeslagen
+**96. Gebruik de bestanden /etc/group en /etc/passwd om een overzicht te maken van alle groepen, gevolgd door de volledige lijst van gebruikers die deze groep als primaire groep hebben. Gebruik een while-lus met een read-commando om het bestand /etc/group te overlopen en grep om de gebruikers op te sporen.**  
+overgeslagen  
 
 **97. Ontwikkel een script met juist twee parameters. De eerste parameter is de naam van een directory tree, de tweede parameter stelt een aantal bytes voor. Het script genereert de naam van alle bestanden in de directory tree waarvan de grootte de waarde van de tweede parameter overschrijdt. Bovendien wordt het totale aantal bestanden dat aan deze voorwaarde voldoet en het totale aantal bytes in deze bestanden gerapporteerd. Tip: Gebruik het find-commando met passende opties om de individuele bestanden te vinden. Gebruik de optie -printf om de noodzakelijke informatie op te vragen tijdens het zoeken.**
 ```sh
@@ -109,15 +109,15 @@ echo "Totaal aantal bestanden => $aantal"
 ```
 
 ---
-**De for-lus**
-syntax wordt later toegepast
+**De for-lus**  
+syntax wordt later toegepast  
 
 **99. Bepaal voor een groep, waarvan het groepsnummer als enige parameter wordt meegegeven, de volledige lijst van gebruikersaccounts die behoren tot deze groep (ook als niet-primaire groep). Construeer twee oplossingen:**
-**• Schrijf eerst alle gebruikersnamen weg naar een tijdelijk bestand; dubbels zijn voorlopig toegestaan. Filter vervolgens de dubbels hieruit en schrijf de resulterende gebruikerslijst uit.**
-**• Gebruik een associatieve array, met de gebruikersnamen als sleutels.**
-overgeslagen
+**• Schrijf eerst alle gebruikersnamen weg naar een tijdelijk bestand; dubbels zijn voorlopig toegestaan. Filter vervolgens de dubbels hieruit en schrijf de resulterende gebruikerslijst uit.**  
+**• Gebruik een associatieve array, met de gebruikersnamen als sleutels.**  
+overgeslagen  
 
-**100. Ontwikkel een script dat alle parameters uitschrijft die meer dan één keer voorkomen in de argumentenlijst van het script. De volgorde waarin de minstens dubbel voorkomende parameters worden uitgeschreven heeft geen belang (sorteren mag), maar je moet er wel voor zorgen dat parameters die meer dan twee keer voorkomen toch slechts eenmaal weggeschreven worden. Laat als eerste parameter ook eventuele opties -i of -I (van ignore case) toe, die desgewenst aangeven dat er geen onderscheid mag gemaakt worden tussen hoofdletters en kleine letters.**
+**100. Ontwikkel een script dat alle parameters uitschrijft die meer dan één keer voorkomen in de argumentenlijst van het script. De volgorde waarin de minstens dubbel voorkomende parameters worden uitgeschreven heeft geen belang (sorteren mag), maar je moet er wel voor zorgen dat parameters die meer dan twee keer voorkomen toch slechts eenmaal weggeschreven worden. Laat als eerste parameter ook eventuele opties -i of -I (van ignore case) toe, die desgewenst aangeven dat er geen onderscheid mag gemaakt worden tussen hoofdletters en kleine letters.**  
 **Tip: denk terug aan instructies uit voorgaande oefeningen!**
 ```sh
 #!/bin/bash
@@ -143,12 +143,12 @@ for i in ${!array[@]};do
     ((array["$i"]>1)) && printf "%s\n" "$i"
 done
 ```
-vb van commando gebruik
-`./100.sh -z -a -a -e -e -f -f -eee -eee -z`
-of met -i gebruik
-`./100.sh -a -A -b -c -d -e -E -f -f`
+vb van commando gebruik  
+`./100.sh -z -a -a -e -e -f -f -eee -eee -z`  
+of met -i gebruik  
+`./100.sh -a -A -b -c -d -e -E -f -f`  
 
-**101. Ontwikkel een script dat een beperkte versie van het commando wc simuleert. Het script moet het aantal regels en de bestandsnaam afdrukken van elk bestand dat als parameter meegegeven wordt. Het script mag enkel interne Bash-instructies (if, for, case, let, while, read, echo enz.) gebruiken en geen externe commando's; het gebruik van awk, sed, perl en wc in het bijzonder is niet toegelaten. Je zult bijgevolg elk bestand regel voor regel moeten inlezen en deze tellen. Het script moet bovendien een samenvattende regel weergeven met het totale aantal regels. Indien geen enkele parameter meegegeven wordt, neem je alle bestanden in de huidige werkdirectory in beschouwing. Los dit zo beknopt mogelijk op met de speciale notaties voor shell- variabelen**
+**101. Ontwikkel een script dat een beperkte versie van het commando wc simuleert. Het script moet het aantal regels en de bestandsnaam afdrukken van elk bestand dat als parameter meegegeven wordt. Het script mag enkel interne Bash-instructies (if, for, case, let, while, read, echo enz.) gebruiken en geen externe commando's; het gebruik van awk, sed, perl en wc in het bijzonder is niet toegelaten. Je zult bijgevolg elk bestand regel voor regel moeten inlezen en deze tellen. Het script moet bovendien een samenvattende regel weergeven met het totale aantal regels. Indien geen enkele parameter meegegeven wordt, neem je alle bestanden in de huidige werkdirectory in beschouwing. Los dit zo beknopt mogelijk op met de speciale notaties voor shell- variabelen**  
 
 ```sh
 #/bin/bash

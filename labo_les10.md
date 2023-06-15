@@ -34,15 +34,15 @@ int main(int argc, char **argv){
 gcc 1.c -o 1
 ./1
 ```
-vervolgens kan men kijken als het bestand is aangemaakt via
-`ll -h`
-`-h` staat voor "human readable", zodat men 10M als size ziet
+vervolgens kan men kijken als het bestand is aangemaakt via  
+`ll -h`  
+`-h` staat voor "human readable", zodat men 10M als size ziet  
 
 
-**2. Tot nog toe werd er niets gezegd over de optimale buffergrootte. De bedoeling is een C-programma te ontwikkelen dat het hierboven aangemaakte bestand verschillende keren inleest en dit met buffergroottes van 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096 en tot slot 8192 bytes. De uitvoer van het programma moet er ongeveer zo uitzien:...**
-overgeslagen
+**2. Tot nog toe werd er niets gezegd over de optimale buffergrootte. De bedoeling is een C-programma te ontwikkelen dat het hierboven aangemaakte bestand verschillende keren inleest en dit met buffergroottes van 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096 en tot slot 8192 bytes. De uitvoer van het programma moet er ongeveer zo uitzien:...**  
+overgeslagen  
 
-**3. Doe nu hetzelfde maar voor de write-systeemaanroep. Maak voor iedere verschillende buffergrootte een bestand aan van ongeveer 10MB (cfr. vraag 1). Nadat je de tijd voor een gegeven buffergrootte hebt opgemeten moet je vanzelfsprekend het aangemaakte bestand terug verwijderen. Een bestand verwijderen kan je doen m.b.v. de unlink-systeemaanroep.**
+**3. Doe nu hetzelfde maar voor de write-systeemaanroep. Maak voor iedere verschillende buffergrootte een bestand aan van ongeveer 10MB (cfr. vraag 1). Nadat je de tijd voor een gegeven buffergrootte hebt opgemeten moet je vanzelfsprekend het aangemaakte bestand terug verwijderen. Een bestand verwijderen kan je doen m.b.v. de unlink-systeemaanroep.**  
 Deze oefening is eig een soort uitbreiding op oef 1.
 ```c
 #include <stdio.h>
@@ -90,8 +90,8 @@ int main(int argc, char **argv){
     return 0;
 }
 ```
-`unlink` de hardlink verwijderen, als dit toevallig de laatste is, zal het bestand dus ook worden vrijgegeven/verwijderd
-info hierover in `man 2 unlink`
+`unlink` de hardlink verwijderen, als dit toevallig de laatste is, zal het bestand dus ook worden vrijgegeven/verwijderd  
+info hierover in `man 2 unlink`  
 
 note: uiteraard eerst de file die reeds was aangemaakt bij oef 1 verwijderen
 ```sh
@@ -100,13 +100,13 @@ gcc 3.c -o 3
 ```
 
 **4. Herneem vraag 3 maar voeg aan de flags-parameter de O_SYNC vlag toe. Dit laatste zorgt ervoor dat er noch in USER-mode noch in KERNEL-mode zal worden gebufferd en dat de bytes rechtstreeks naar de schijf zullen worden geschreven.**
-**Ter info, de vaste schijf beschikt om performantieredenen over een bepaalde hoeveelheid write-back-cache-geheugen waar gegevens van I/O- schrijfopdrachten tijdelijk worden bewaard. Dit betekent dat er bij een eventuele spanningsonderbreking wel degelijk gegevens kunnen verloren gaan. Bij programma’s, zoals gegevensbanken, waar gegevensverlies nefast is, wordt er aangeraden om “write-caching” uit te schakelen. Dit kan je doen door in een shell de opdracht `hdparm -W0 /dev/sda` uit te voeren.**
-dit is gwn kleine aanpassingen doen aan vorige oefening ( `| O_SYNC`) 
-men moet wel nog `dnf install hdparm` doen om die opdracht te kunnen uitvoeren
-verder wordt er niet echt iets gevraagd
+**Ter info, de vaste schijf beschikt om performantieredenen over een bepaalde hoeveelheid write-back-cache-geheugen waar gegevens van I/O- schrijfopdrachten tijdelijk worden bewaard. Dit betekent dat er bij een eventuele spanningsonderbreking wel degelijk gegevens kunnen verloren gaan. Bij programma’s, zoals gegevensbanken, waar gegevensverlies nefast is, wordt er aangeraden om “write-caching” uit te schakelen. Dit kan je doen door in een shell de opdracht `hdparm -W0 /dev/sda` uit te voeren.**  
+dit is gwn kleine aanpassingen doen aan vorige oefening ( `| O_SYNC`)   
+men moet wel nog `dnf install hdparm` doen om die opdracht te kunnen uitvoeren  
+verder wordt er niet echt iets gevraagd  
 
-**5. Bestudeer gronding de werking van de shell-opdracht cat en schrijf in C een eigen versie van cat. Bekijk bv. wat er gebeurt wanneer je de opdracht `cat /etc/passwd - /etc` opgeeft of wanneer cat geen argumenten meekrijgt. Wanneer je een directory opgeeft als argument, geeft cat een foutmelding. Dit gedrag hoef je niet na te bootsen.**
-`cat` zonder argumenten laat ons toe gewoon te typen en wnr men op enter drukt kan men op de volgende lijn typen
+**5. Bestudeer gronding de werking van de shell-opdracht cat en schrijf in C een eigen versie van cat. Bekijk bv. wat er gebeurt wanneer je de opdracht `cat /etc/passwd - /etc` opgeeft of wanneer cat geen argumenten meekrijgt. Wanneer je een directory opgeeft als argument, geeft cat een foutmelding. Dit gedrag hoef je niet na te bootsen.**  
+`cat` zonder argumenten laat ons toe gewoon te typen en wnr men op enter drukt kan men op de volgende lijn typen  
 
 `-` is synoniem voor lezen standaardinvoer & schrijven standaard uitvoer
 ```c
@@ -192,7 +192,7 @@ gcc 5.c
 # NOTE: via ctrl+D kunnen we een EOF signaal geven
 ```
 
-**6. Schrijf een eigen versie van de opdracht cp waar twee argumenten op de opdrachtlijn worden verwacht. Het eerste argument is het bronbestand en het tweede het doelbestand. Wanneer de eerste parameter een directory is, wordt een foutboodschap naar het scherm geschreven en stopt het programma met exit-status 1. Wanneer het tweede argument een directory is, wordt opnieuw gestopt met een passende foutboodschap en met exit-status 1.**
+**6. Schrijf een eigen versie van de opdracht cp waar twee argumenten op de opdrachtlijn worden verwacht. Het eerste argument is het bronbestand en het tweede het doelbestand. Wanneer de eerste parameter een directory is, wordt een foutboodschap naar het scherm geschreven en stopt het programma met exit-status 1. Wanneer het tweede argument een directory is, wordt opnieuw gestopt met een passende foutboodschap en met exit-status 1.**  
 **Om na te gaan of een argument een directory is, kan je gebruikmaken van de systeemaanroep stat. Om een programma te stoppen met exit-status 1 maak je best gebruik van de bibliotheekfunctie exit die dan achter de schermen de systeemaanroep _exit aanroept.**
 ```c
 #include <unistd.h>
@@ -212,10 +212,10 @@ int main(int argc, char **argv){
 }
 ```
 
-**7. Schrijf een C-programma met als naam watchfile.c dat één argument, een bestand, op de opdrachtlijn verwacht. Het programma loopt in een oneindige lus en schrijft telkens een boodschap naar het scherm wanneer het bestand dat op de opdrachtlijn werd meegegeven werd gewijzigd. Wanneer er geen argument werd opgegeven of het argument is geen gewoon bestand wordt een foutboodschap getoond en wordt het programma afgesloten met exit-status 1.**
-dmv de systemcall `stat` kan men nagaan als een bestand gewijzigd zou zijn.
-We gaan dit uiteraard doen door te kijken nr de tijd en niet de grootte.
-opnieuw info opvragen kan via `man 2 stat` om te zien hoe die functies in c precies werken
+**7. Schrijf een C-programma met als naam watchfile.c dat één argument, een bestand, op de opdrachtlijn verwacht. Het programma loopt in een oneindige lus en schrijft telkens een boodschap naar het scherm wanneer het bestand dat op de opdrachtlijn werd meegegeven werd gewijzigd. Wanneer er geen argument werd opgegeven of het argument is geen gewoon bestand wordt een foutboodschap getoond en wordt het programma afgesloten met exit-status 1.**  
+dmv de systemcall `stat` kan men nagaan als een bestand gewijzigd zou zijn.  
+We gaan dit uiteraard doen door te kijken nr de tijd en niet de grootte.  
+opnieuw info opvragen kan via `man 2 stat` om te zien hoe die functies in c precies werken  
 gevonden syntax: 
 ```c
 #include <sys/types.h>

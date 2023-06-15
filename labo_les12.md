@@ -1,18 +1,15 @@
 # Deel VII: Processen en POSIX-threads
 ## POSIX-threads
-(p44/51)
+(p44/51)  
 
-bij Threads kan men makkelijk delen, niet dmv gebruik van pipes, maar globale variabelen
+bij Threads kan men makkelijk delen, niet dmv gebruik van pipes, maar globale variabelen  
 
-**Opdrachten**
+**Opdrachten**  
 
-**1. Schrijf een programma dat gebruikmaakt van vier threads die elk een verschillend cijfer naar het scherm schrijven. Wanneer een thread het bijhorend cijfer 100 keer naar het scherm heeft geschreven, stopt de thread.**
-overgeslagen
+**1. Schrijf een programma dat gebruikmaakt van vier threads die elk een verschillend cijfer naar het scherm schrijven. Wanneer een thread het bijhorend cijfer 100 keer naar het scherm heeft geschreven, stopt de thread.**  
+overgeslagen  
 
 **2. Genereer 1.000.000 willekeurige reële getallen die je bijhoudt in een tabel. Schijf nu twee functies die zoeken naar respectievelijk het kleinste getal en het grootste getal en deze getallen als return-waarde teruggeven. Schrijf nu een hoofdprogramma dat gelijktijdig zoekt naar het grootste en het kleinste getal in een tabel van 1.000.000 reële getallen. Schrijf beide getallen naar het scherm.**
-
-
-
 ```c
 #include <pthread.h>
 #include <dtdlib.h>
@@ -95,12 +92,12 @@ gcc 2.c -pthread
 ./a.out
 ```
 
-**3. Multithreading kan ook leiden tot snelheidswinst. Een mooi voorbeeld hiervan is bv. een matrixvermenigvuldiging. Om de snelheidswinst op te merken maak je best gebruik van twee vierkante matrices met 1000 rijen en 1000 kolommen. Ook gebruik je best vier tot acht threads om de het resultaat te berekenen. Gebruik voor de dimensie en ook voor het aantal threads constanten.**
+**3. Multithreading kan ook leiden tot snelheidswinst. Een mooi voorbeeld hiervan is bv. een matrixvermenigvuldiging. Om de snelheidswinst op te merken maak je best gebruik van twee vierkante matrices met 1000 rijen en 1000 kolommen. Ook gebruik je best vier tot acht threads om de het resultaat te berekenen. Gebruik voor de dimensie en ook voor het aantal threads constanten.**  
 
-**Wanneer er bijvoorbeeld acht threads worden gebruikt, kan je het resultaat als volgt berekenen. De eerste thread laat je de 0de, de 8ste, de 16de, ... rij van het resultaat bepalen. De tweede thread ontfermt zich over de 1ste, 9de, 17de, ... rij van het resultaat. Iedere thread berekent dus DIM/8 rijen van het eindresultaat waarbij de rijen op een afstand van het aantal threads van elkaar liggen.**
+**Wanneer er bijvoorbeeld acht threads worden gebruikt, kan je het resultaat als volgt berekenen. De eerste thread laat je de 0de, de 8ste, de 16de, ... rij van het resultaat bepalen. De tweede thread ontfermt zich over de 1ste, 9de, 17de, ... rij van het resultaat. Iedere thread berekent dus DIM/8 rijen van het eindresultaat waarbij de rijen op een afstand van het aantal threads van elkaar liggen.**  
 
-**Om het opvullen van een matrix vlot te laten verlopen, geef je het element op ide rij en op de jde kolom de waarde i+j. Dit kan eenvoudig worden geprogrammeerd a.d.h.v. een dubbele for-lus. Doe dit voor beide matrices en merk op dat je dus identieke matrices met elkaar vermenigvuldigt. Schrijf ook een programma dat geen Pthreads gebruikt om duidelijk het verschil in snelheid te zien.**
-kleine intro van hoe matrix te maken
+**Om het opvullen van een matrix vlot te laten verlopen, geef je het element op ide rij en op de jde kolom de waarde i+j. Dit kan eenvoudig worden geprogrammeerd a.d.h.v. een dubbele for-lus. Doe dit voor beide matrices en merk op dat je dus identieke matrices met elkaar vermenigvuldigt. Schrijf ook een programma dat geen Pthreads gebruikt om duidelijk het verschil in snelheid te zien.**  
+kleine intro van hoe matrix te maken  
 (statisch vs dynamisch)
 ```c
 int tab[2][2] = {{1,2}, {3,4}};
@@ -255,13 +252,13 @@ gcc 3.c -pthread
 ./a.out
 ```
 
-**4.**
-niet doen wegens dat het recursie bevat & we het overige niet gezien hebben.
+**4.**  
+niet doen wegens dat het recursie bevat & we het overige niet gezien hebben.  
 
-**latere oefeningen ook niet te kennen**
+**latere oefeningen ook niet te kennen**  
 
-les eindigt met examenvragen te genereren via chatGPT
-bv een log file Analyzer
+les eindigt met examenvragen te genereren via chatGPT  
+bv een log file Analyzer  
 waarbij men dus bij een gegeven log file
 ```
 2023-05-0 15:15:20 ERROR: some error occurred
@@ -270,5 +267,5 @@ waarbij men dus bij een gegeven log file
 2023-05-0 15:25:30 INFO: I like cookies
 ...
 ```
-de output zou kunnen parsen obv log level of dergelijke
+de output zou kunnen parsen obv log level of dergelijke  
 tip: om tijden te vergelijken: zet gwn om nr 1 groot getal
