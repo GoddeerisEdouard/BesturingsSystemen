@@ -33,11 +33,12 @@ zelftests zeker ook eens bekijken
 is interessant voor de leerkracht om inspiratie voor vragen uit te halen.  
 
 ---
-zoals in de aankondigingen zal het bestand tokyo_metro.txt vanop Amerigo gebruikt worden op het examen
+zoals in de aankondigingen zal het bestand tokyo_metro.txt vanop Amerigo gebruikt worden op het examen  
 hint:  
-bij de kilometers van die stations gewoon de . weg doen & 1 getal van maken
-als het eindigt op een 0 weet men bv dat het geen kommagetal is  
-als het laatste getal daarentegen geen 0 is, gwn laatste cijfer wegkappen.  
+om kilometers (voorbeeld formaat `5.5`) uit te kunnen lezen:  
+bij de kilometers van die stations gewoon de . wegdoen & 1 getal van maken  
+- als het eindigt op een 0 weet men bv dat het geen kommagetal is  
+- als het laatste getal daarentegen geen 0 is, gwn laatste cijfer wegkappen.  
 bv 5.0 km wordt gwn 5km  
 
 voorbeeldvragen met gebruik van dat bestand:  
