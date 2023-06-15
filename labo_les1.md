@@ -53,7 +53,7 @@ mnt: mount punt voor bv usb
 # Deel II: Compileren in de Shell
 
 
-Uitleg over het compileren van een bestand:
+Uitleg over het compileren van een bestand:  
 ![file_compiler](./afbeeldingen/compileer_flow.png)
 Begin bij een bestand met extensie .c
 en enkele extra bestanden erbij met extensie .h (header files)
