@@ -189,8 +189,6 @@ aantal elementen weten: `echo ${#tab[@]}`
 
 Als men nu het volledige 2e element wil verwijderen=
 `unset tab[1]`
-mocht men het willen vervangen:
-`unset ${tab[1]}`
 
 1 tot 5 gaat over command substitution
 6 en 7 gaan over met tabellen werken

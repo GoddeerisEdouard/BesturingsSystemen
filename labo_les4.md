@@ -34,7 +34,7 @@ geen idee hoe je die "groter dan aantal lijnen in bestand" kan verzwijgen
 `tr` (=translate) kan gebruikt worden om bepaalde karakters te deleten van een bestand, via de `-d` optie
 dus om de `\r` van windows te deleten:  
 ```sh
-tr -d $'\r' < test.bash > temp
+tr -d '\r' < test.bash > temp
 mv temp test.bash
 ```
 ! niet lezen en schrijven nr eenzelfde bestand, dan maak je het leeg  
